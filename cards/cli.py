@@ -37,7 +37,7 @@ def create_deck(decks: list[Deck]) -> None:
         print("A deck with this name already exists.")
     else:
         decks.append(Deck(name))
-        print(f"Deck '{name}' create.")
+        print(f"Deck '{name}' created.")
 
 
 def add_card(decks: list[Deck]) -> None:
@@ -60,8 +60,8 @@ def show_decks(decks: list[Deck]) -> None:
     if not decks:
         print("No decks yet.")
     for deck in decks:
-        print(f"/n{deck}")
-        for card in deck.cerds:
+        print(f"\n{deck}")
+        for card in deck.cards:
             print(f" {card}")
 
 
@@ -72,15 +72,15 @@ def run_quiz(decks: list[Deck]) -> None:
         return
     session = QuizSession(deck)
     for card in session.cards_to_ask():
-        answer = input(f"/n{card.front}/n> ") 
+        answer = input(f"\n{card.front}\n> ") 
         if session.answer(card, answer):
             print("Correct!")
         else:
-            print(f"Noy quite. The answer is: {card. back}")
+            print(f"Not quite. The answer is: {card. back}")
     if session.asked == 0:
         print("No cards to practice. Add cards, os all cards are known.")
     else:
-        print(f"/n{session}")
+        print(f"\n{session}")
         print(f"Score: {session.score_percent:.0f}%")
 
 
