@@ -50,7 +50,7 @@ class Deck:
 
     def __str__(self) -> str:
         """Show the deck name and how many cards are known."""
-        return f"{self.name} ({self.known_count}/{len(self.card)} known)"
+        return f"{self.name} ({self.known_count}/{len(self.cards)} known)"
 
     @property
     def known_count(self) -> int:

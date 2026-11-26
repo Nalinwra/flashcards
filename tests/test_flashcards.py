@@ -54,6 +54,14 @@ def test_due_cards_skips_known_cards():
     assert [card.front for card in due] == ["b"]
 
 
+def test_deck_str_shows_name_and_known_count():
+    deck = Deck("Words")
+    first = deck.add_card("a", "1")
+    deck.add_card("b", "2")
+    first.known = True
+    assert str(deck) == "Words (1/2 known)"
+
+
 # ---------- QuizSession ----------
 
 def test_correct_answer_marks_card_known_and_scores():
